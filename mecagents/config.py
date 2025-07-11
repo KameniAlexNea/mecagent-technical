@@ -15,9 +15,9 @@ class ModelConfig:
     use_gradient_checkpointing: str = "unsloth"
 
     # LoRA configuration
-    finetune_vision_layers: bool = True
-    finetune_language_layers: bool = True
-    finetune_attention_modules: bool = True
+    finetune_vision_layers: bool = False
+    finetune_language_layers: bool = False
+    finetune_attention_modules: bool = False
     finetune_mlp_modules: bool = True
     lora_r: int = 16
     lora_alpha: int = 16

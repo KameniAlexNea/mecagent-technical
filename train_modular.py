@@ -9,7 +9,6 @@ for training vision-language models on CAD code generation tasks.
 import os
 
 os.environ["WANDB_PROJECT"] = "mecagents-cad-code-generation"
-os.environ["WANDB_LOG_MODEL"] = "true"
 os.environ["WANDB_WATCH"] = "none"
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"

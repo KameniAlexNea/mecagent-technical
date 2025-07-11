@@ -163,6 +163,7 @@ class InferenceManager:
         processor: Any,
         image: Any,
         custom_instruction: Optional[str] = None,
+        stream_output: bool = True,
     ) -> str:
         """Interactive CAD code generation with custom instruction"""
 
@@ -183,7 +184,7 @@ class InferenceManager:
         print("-" * 50)
 
         generated_code = self.generate_cad_code(
-            model, processor, image, messages, stream_output=True
+            model, processor, image, messages, stream_output=stream_output
         )
 
         return generated_code
