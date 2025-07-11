@@ -4,15 +4,17 @@ os.environ["WANDB_PROJECT"] = "mecagents-cad-code-generation"
 os.environ["WANDB_WATCH"] = "none"
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-import unsloth  # noqa: F401
 import json
+
+import unsloth  # noqa: F401
+
 from mecagents import (
-    ModelManager,
+    DataConfig,
     DataProcessor,
+    InferenceConfig,
     InferenceManager,
     ModelConfig,
-    DataConfig,
-    InferenceConfig,
+    ModelManager,
 )
 
 
@@ -26,9 +28,7 @@ def demo_inference_only():
     save_dir = "llm_output/mecagents_model_imp.json"
     model_config = ModelConfig(model_name="outputs/mecagents_model/merged_model")
     data_config = DataConfig(sample_size=100)  # Small sample for demo
-    inference_config = InferenceConfig(
-        max_new_tokens=256
-    )
+    inference_config = InferenceConfig(max_new_tokens=256)
 
     # Load data
     data_processor = DataProcessor(data_config)
@@ -55,16 +55,19 @@ def demo_inference_only():
             custom_instruction=sample["prompt"],
             stream_output=False,
         )
-        results.append({
-            "predicted_code": generated_code,
-            "ground_truth": sample.get("cadquery", ""),
-        })
-    
+        results.append(
+            {
+                "predicted_code": generated_code,
+                "ground_truth": sample.get("cadquery", ""),
+            }
+        )
+
     # Save results
     with open(save_dir, "w") as f:
         json.dump(results, f, indent=4)
 
     print("Inference demo completed!")
+
 
 if __name__ == "__main__":
     demo_inference_only()

@@ -1,6 +1,6 @@
-from metrics.valid_syntax_rate import evaluate_syntax_rate
-
 import json
+
+from metrics.valid_syntax_rate import evaluate_syntax_rate
 
 path = "llm_output/mecagents_model_imp.json"
 with open(path, "r") as f:

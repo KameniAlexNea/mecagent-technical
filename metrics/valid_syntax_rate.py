@@ -1,9 +1,9 @@
-import sys
 import os
+import textwrap
+from typing import Dict, List, Union
+
 import cadquery as cq
 import numpy as np
-import textwrap
-from typing import Union, Dict, List
 
 os.environ["CADQUERY_LOG_LEVEL"] = "ERROR"
 
@@ -104,7 +104,7 @@ def evaluate_syntax_rate(
     for script_id in ids:
         code = codes[script_id]
         try:
-            solid = _load_solid_from_code(code, script_id)
+            _load_solid_from_code(code, script_id)
             successful_count += 1
             if verbose:
                 print(f"✓ {script_id}: Successfully executed")

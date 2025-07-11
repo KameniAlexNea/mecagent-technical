@@ -13,15 +13,16 @@ os.environ["WANDB_WATCH"] = "none"
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import unsloth  # noqa: F401
+
 from mecagents import (
-    ModelManager,
+    DataConfig,
     DataProcessor,
-    TrainingManager,
+    InferenceConfig,
     InferenceManager,
     ModelConfig,
+    ModelManager,
     TrainingConfig,
-    DataConfig,
-    InferenceConfig,
+    TrainingManager,
 )
 
 
@@ -104,8 +105,8 @@ def main():
     training_manager = TrainingManager(training_config)
     model_manager.prepare_for_training()
 
-    trainer = training_manager.create_trainer(model, processor, converted_dataset)
-    training_summary = training_manager.train()
+    training_manager.create_trainer(model, processor, converted_dataset)
+    training_manager.train()
 
     # 6. Test Trained Model
     print("\n6. Testing trained model...")
