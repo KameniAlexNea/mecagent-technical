@@ -43,11 +43,11 @@ class TrainingConfig:
     max_grad_norm: float = 0.3
     warmup_ratio: float = 0.03
     max_steps: int = 1000
-    num_train_epochs: Optional[int] = None
+    num_train_epochs: Optional[int] = 5
     learning_rate: float = 2e-4
     logging_steps: int = 5
     save_strategy: str = "steps"
-    save_steps: int = 100
+    save_steps: int = 50
     optim: str = "adamw_torch_fused"
     weight_decay: float = 0.01
     lr_scheduler_type: str = "cosine"

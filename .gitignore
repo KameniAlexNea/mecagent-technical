@@ -11,3 +11,5 @@ wheels/
 Volumes
 unsloth_compiled_cache
 outputs
+*.out
+wandb
