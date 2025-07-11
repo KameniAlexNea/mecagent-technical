@@ -25,5 +25,6 @@ dependencies = [
     "trl>=0.19.1",
     "unsloth>=2025.7.3",
     "unsloth-zoo>=2025.7.4",
+    "wandb>=0.21.0",
     "xformers==0.0.29.post3",
 ]

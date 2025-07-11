@@ -39,6 +39,7 @@ class TrainingManager:
             learning_rate=self.config.learning_rate,
             logging_steps=self.config.logging_steps,
             save_strategy=self.config.save_strategy,
+            save_steps=self.config.save_steps,
             optim=self.config.optim,
             weight_decay=self.config.weight_decay,
             lr_scheduler_type=self.config.lr_scheduler_type,

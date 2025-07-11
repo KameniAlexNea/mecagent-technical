@@ -36,10 +36,10 @@ def main():
     )
     
     training_config = TrainingConfig(
-        max_steps=100,  # Quick training for demonstration
+        max_steps=1000,  # Quick training for demonstration
         learning_rate=2e-4,
         per_device_train_batch_size=1,
-        gradient_accumulation_steps=4,
+        gradient_accumulation_steps=8,
         output_dir="outputs/mecagents_model"
     )
     
@@ -109,16 +109,16 @@ def main():
     )
     
     # 7. Evaluate on Multiple Samples
-    print("\n7. Evaluating on multiple samples...")
-    if test_dataset:
-        evaluation_results = inference_manager.batch_evaluate(
-            model, processor, test_dataset, num_samples=3
-        )
+    # print("\n7. Evaluating on multiple samples...")
+    # if test_dataset:
+    #     evaluation_results = inference_manager.batch_evaluate(
+    #         model, processor, test_dataset, num_samples=3
+    #     )
         
-        for i, result in enumerate(evaluation_results):
-            print(f"\nSample {i+1}:")
-            print(f"Predicted: {result['predicted_code'][:100]}...")
-            print(f"Ground truth: {result['ground_truth'][:100]}...")
+    #     for i, result in enumerate(evaluation_results):
+    #         print(f"\nSample {i+1}:")
+    #         print(f"Predicted: {result['predicted_code'][:100]}...")
+    #         print(f"Ground truth: {result['ground_truth'][:100]}...")
     
     # 8. Save the Model
     print("\n8. Saving the model...")

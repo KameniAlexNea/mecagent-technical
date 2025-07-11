@@ -39,18 +39,19 @@ class TrainingConfig:
     gradient_checkpointing: bool = True
     max_grad_norm: float = 0.3
     warmup_ratio: float = 0.03
-    max_steps: int = 100
+    max_steps: int = 1000
     num_train_epochs: Optional[int] = None
     learning_rate: float = 2e-4
-    logging_steps: int = 1
+    logging_steps: int = 5
     save_strategy: str = "steps"
+    save_steps: int = 100
     optim: str = "adamw_torch_fused"
     weight_decay: float = 0.01
     lr_scheduler_type: str = "cosine"
     seed: int = 3407
     output_dir: str = "outputs"
-    report_to: str = "none"
-    max_seq_length: int = 2048
+    report_to: str = "wandb"
+    max_seq_length: int = 1024
     
     # Vision specific settings
     remove_unused_columns: bool = False
