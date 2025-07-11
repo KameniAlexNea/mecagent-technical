@@ -1,0 +1,13 @@
+[project]
+name = "mecagent-technical-test"
+version = "0.1.0"
+description = "Just a technical test"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cadquery>=2.5.2",
+    "datasets>=3.6.0",
+    "ipykernel>=6.29.5",
+    "scipy>=1.15.3",
+    "trimesh>=4.6.11",
+]
