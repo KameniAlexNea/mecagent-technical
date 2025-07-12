@@ -3,7 +3,7 @@ import json
 from metrics.valid_syntax_rate import evaluate_syntax_rate
 from metrics.best_iou import _load_solid_from_code, _normalized_mesh, iou_best
 
-path = "llm_output/mecagents_model_imp.json"
+path = "llm_output/mecagents_model_lora.json"
 with open(path, "r") as f:
     data = json.load(f)
 
@@ -32,5 +32,5 @@ results["mean_iou"] = sum(ious) / len(ious)
 print(results)
 
 # save results
-with open("llm_output/syntax_rate_results_imp.json", "w") as f:
+with open("llm_output/syntax_rate_results_lora.json", "w") as f:
     json.dump(results, f, indent=4)

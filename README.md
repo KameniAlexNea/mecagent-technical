@@ -48,11 +48,7 @@ python examples.py
 
 ```
 mecagent-technical/
-├── 📄 train.py              # Original training script
-├── 📄 train_modular.py      # New modular training script  
-├── 📄 migrate.py            # Migration demonstration
-├── 📄 examples.py           # Comprehensive usage examples
-├── 📄 demo.py               # Quick comparison demo
+├── 📄 train_modular.py      # New modular training script 
 ├── 📄 good_luck.ipynb       # Jupyter notebook examples
 ├── 📄 01-ExploreCADDataset.ipynb
 ├── 📄 02-EvaluateExistingSolution.ipynb
@@ -64,7 +60,6 @@ mecagent-technical/
     ├── training.py          # Training utilities
     ├── inference.py         # Inference utilities
     ├── utils.py             # Helper functions
-    └── README.md            # Framework documentation
 ```
 
 ## 🏗️ Framework Architecture
@@ -74,63 +69,51 @@ mecagent-technical/
 The **MecAgents** framework is organized into focused modules:
 
 #### 🔧 Configuration (`config.py`)
+
 - `ModelConfig`: Model and LoRA settings
-- `DataConfig`: Dataset and preprocessing settings  
+- `DataConfig`: Dataset and preprocessing settings
 - `TrainingConfig`: Training hyperparameters
 - `InferenceConfig`: Generation parameters
 
 #### 🤖 Model Management (`model.py`)
+
 - Load and configure vision-language models
 - Setup LoRA adapters for efficient fine-tuning
 - Handle model state transitions (training/inference)
 - Memory monitoring and model saving
 
 #### 📊 Data Processing (`data.py`)
+
 - Load and validate CAD datasets
 - Convert to conversation format for training
 - Sample management and statistics
 - Inference message creation
 
 #### 🏋️ Training (`training.py`)
+
 - Managed training pipeline with SFTTrainer
 - Training metrics and memory tracking
 - Automatic logging and state saving
 - Configuration-driven training setup
 
 #### 🎯 Inference (`inference.py`)
+
 - Single and batch inference
 - Custom instruction support
 - Parameter experimentation
 - Model evaluation utilities
 
 #### 🛠️ Utilities (`utils.py`)
+
 - GPU availability checking
 - Configuration serialization
 - Experiment directory management
 - Memory management helpers
 
-## 🔄 Migration Benefits
-
-### Before (Original `train.py`)
-❌ **Issues:**
-- Monolithic script with hardcoded parameters
-- Difficult to reuse components
-- Hard to maintain and extend
-- Limited experiment tracking
-- No standardized evaluation
-
-### After (Modular `mecagents/`)
-✅ **Benefits:**
-- Clean separation of concerns
-- Configuration-driven development
-- Reusable components
-- Easy experimentation
-- Built-in evaluation pipeline
-- Type hints and documentation
-
 ## 📖 Usage Examples
 
 ### 1. Quick Training
+
 ```python
 from mecagents import ModelManager, DataProcessor, TrainingManager
 from mecagents import ModelConfig, DataConfig, TrainingConfig
@@ -155,6 +138,7 @@ results = training_manager.train()
 ```
 
 ### 2. Inference and Evaluation
+
 ```python
 from mecagents import InferenceManager, InferenceConfig
 
@@ -175,25 +159,6 @@ results = inference_manager.batch_evaluate(
 )
 ```
 
-### 3. Experiment Management
-```python
-from mecagents.utils import create_experiment_directory, save_config_to_json
-
-# Create experiment
-exp_dir = create_experiment_directory("experiments", "lora_comparison")
-
-# Test different LoRA configurations
-lora_configs = [
-    ModelConfig(lora_r=8, lora_alpha=8),
-    ModelConfig(lora_r=16, lora_alpha=16),
-    ModelConfig(lora_r=32, lora_alpha=32),
-]
-
-for i, config in enumerate(lora_configs):
-    save_config_to_json(config.__dict__, f"{exp_dir}/config_{i}.json")
-    # ... run training with config
-```
-
 ## 🎯 Key Features
 
 - **🔧 Configuration-Driven**: All settings managed through typed configuration classes
@@ -211,30 +176,15 @@ The framework works with the existing project dependencies:
 
 ```bash
 # Install dependencies (if not already installed)
-pip install torch transformers datasets unsloth trl
+uv sync
 
 # The mecagents framework is included in this repository
 # Simply import and use the modules
 ```
 
-## 📝 Migration Guide
-
-See `migrate.py` for a complete demonstration of migrating from the original approach to the modular framework. The migration maintains all functionality while providing better organization and extensibility.
-
 ## 🤝 Contributing
 
 The modular design makes it easy to extend the framework:
 
-1. **Add new model types**: Extend `ModelManager` for different architectures
-2. **Add new datasets**: Extend `DataProcessor` for different data formats  
-3. **Add new training strategies**: Extend `TrainingManager` for different training approaches
-4. **Add new evaluation metrics**: Extend `InferenceManager` for custom evaluation
-
-## 📄 License
-
-This project maintains the same license as the original implementation.
-
----
-
-### Original Information
-Everything about the original implementation is explained in the `good_luck.ipynb` file.
+1. **Use argument parser to run the configuration code**
+2. Add support for GPRO in training (usage of metrics)
