@@ -1,7 +1,7 @@
 import json
 
-from metrics.valid_syntax_rate import evaluate_syntax_rate
 from metrics.best_iou import _load_solid_from_code, _normalized_mesh, iou_best
+from metrics.valid_syntax_rate import evaluate_syntax_rate
 
 path = "llm_output/mecagents_model_lora.json"
 with open(path, "r") as f:

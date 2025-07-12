@@ -20,7 +20,6 @@ class ModelConfig:
     finetune_attention_modules: bool = False
     finetune_mlp_modules: bool = True
 
-
     lora_r: int = 16
     lora_alpha: int = 16
     lora_dropout: float = 0.0
