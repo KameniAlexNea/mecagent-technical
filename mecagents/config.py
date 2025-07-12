@@ -14,11 +14,13 @@ class ModelConfig:
     load_in_4bit: bool = True
     use_gradient_checkpointing: str = "unsloth"
 
-    # LoRA configuration
+    # LoRA configuration: turn to true for improved performance
     finetune_vision_layers: bool = False
     finetune_language_layers: bool = False
     finetune_attention_modules: bool = False
     finetune_mlp_modules: bool = True
+
+
     lora_r: int = 16
     lora_alpha: int = 16
     lora_dropout: float = 0.0
