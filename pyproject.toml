@@ -5,9 +5,26 @@ description = "Just a technical test"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "accelerate>=1.8.1",
+    "bitsandbytes>=0.46.1",
     "cadquery>=2.5.2",
-    "datasets>=3.6.0",
+    "cut-cross-entropy>=25.1.1",
+    "datasets>=3.4.1,<4.0.0",
+    "hf-transfer>=0.1.9",
+    "huggingface-hub>=0.32.6",
     "ipykernel>=6.29.5",
+    "matplotlib>=3.10.3",
+    "peft>=0.16.0",
+    "pillow>=11.3.0",
+    "protobuf>=3.20.3",
     "scipy>=1.15.3",
+    "seaborn>=0.13.2",
+    "sentencepiece>=0.2.0",
     "trimesh>=4.6.11",
+    "triton>=3.2.0",
+    "trl>=0.19.1",
+    "unsloth>=2025.7.3",
+    "unsloth-zoo>=2025.7.4",
+    "wandb>=0.21.0",
+    "xformers==0.0.29.post3",
 ]

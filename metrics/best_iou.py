@@ -1,12 +1,15 @@
-import argparse, importlib.util, runpy, tempfile, itertools, sys
-from pathlib import Path
 import os
+import runpy
+import sys
+import tempfile
+import textwrap
+from pathlib import Path
+from typing import Union
+
 import cadquery as cq
-from cadquery import exporters
 import numpy as np
 import trimesh
-from typing import Union
-import textwrap
+from cadquery import exporters
 
 os.environ["CADQUERY_LOG_LEVEL"] = "ERROR"
 

@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+Volumes
+unsloth_compiled_cache
+outputs
+*.out
+wandb
