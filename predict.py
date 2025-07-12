@@ -28,6 +28,7 @@ def demo_inference_only():
     # save_dir = "llm_output/mecagents_model_imp.json"
     save_dir = "llm_output/mecagents_model_lora.json"
     # model_config = ModelConfig(model_name="outputs/mecagents_model/merged_model")
+    # check https://huggingface.co/alexneakameni/mecagents_model_lora for the model
     model_config = ModelConfig(model_name="outputs/mecagents_model/lora_adapters")
     data_config = DataConfig(sample_size=100)  # Small sample for demo
     inference_config = InferenceConfig(max_new_tokens=256)
