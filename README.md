@@ -1,6 +1,6 @@
 # MecAgent Technical
 
-A modular framework for training CAD code generation models using vision-language architectures. This project provides both the original training approach and a new modular framework (MecAgents) for better maintainability and reusability.
+A modular framework for training CAD code generation models using vision-language architectures. 
 
 ## 🚀 Quick Start
 
@@ -32,16 +32,13 @@ training_manager = TrainingManager(training_config)
 
 ```bash
 # Quick demonstration
-python demo.py
+python predict.py
 
 # Full modular training
 python train_modular.py
 
-# Migration comparison
-python migrate.py
-
-# Comprehensive examples
-python examples.py
+# Comprehensive evaluations
+python evaluate_predictions.py
 ```
 
 ## 📁 Project Structure
@@ -188,3 +185,4 @@ The modular design makes it easy to extend the framework:
 
 1. **Use argument parser to run the configuration code**
 2. Add support for GPRO in training (usage of metrics)
+3. Add some test cases
